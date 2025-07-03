@@ -39,13 +39,13 @@ For example, if a component is executing a long-running task in a background thr
 
  ```kotlin
  val lifecycleOwner = LocalLifecycleOwner.current
-            LaunchedEffect(lifecycleOwner) {
-                lifecycleOwner.lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
-                    withContext(Dispatchers.IO) {
-                        println("Running...")
-                    }
-                }
-            }
+   LaunchedEffect(lifecycleOwner) {
+       lifecycleOwner.lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
+           withContext(Dispatchers.IO) {
+               println("Running...")
+           }
+       }
+  }
 ```
 
 The code snippet above, launches a concurrent task (coroutine - running on the background because it is marked as an IO task) which is tied to the lifecycle of the LaunchEffect composable. This means the task is automatically cancelled when the composable is destroyed and starts when the composable is created. This way, the coroutine does not outlive the calling composable. 
