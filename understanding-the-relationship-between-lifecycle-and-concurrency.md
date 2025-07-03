@@ -48,6 +48,8 @@ For example, if a component is executing a long-running task in a background thr
   }
 ```
 
+The code snippet above, launches a concurrent task (coroutine - running on the background because it is marked as an IO task) which is tied to the lifecycle of the LaunchEffect composable. This means the task is automatically cancelled when the composable is destroyed and starts when the composable is created. This way, the coroutine does not outlive the calling composable. 
+
 ##### Example in Flutter.
 
 ```dart
@@ -90,5 +92,5 @@ class _LifecycleAwareTaskState extends State<LifecycleAwareTask> {
 }
 ```
 
-The code snippet above, launches a concurrent task (coroutine - running on the background because it is marked as an IO task) which is tied to the lifecycle of the LaunchEffect composable. This means the task is automatically cancelled when the composable is destroyed and starts when the composable is created. This way, the coroutine does not outlive the calling composable. 
+The code snippet above launches a concurrent (asynchronous) task in Flutter using initState. The task is tied to the lifecycle of the StatefulWidget, ensuring it only runs while the widget is mounted. If the widget is destroyed before the task completes, the task won’t update the UI, thereby preventing memory leaks or exceptions. This way, the task does not outlive the widget that initiated it.
 
