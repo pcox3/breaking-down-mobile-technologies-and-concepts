@@ -35,16 +35,17 @@ For example, if a component is executing a long-running task in a background thr
  • Use lifecycle-aware components to bind concurrency to lifecycle. This means, the concurrent task is automatically cancelled onced the component enters the destroyed lifecycle state.
  • For UI, always ensure updates happen only when the component is in a valid lifecycle state (e.g., STARTED or RESUMED).
 
- ### Example in Jetpack Compose. 
+### Example in Jetpack Compose. 
 
- ```val lifecycleOwner = LocalLifecycleOwner.current
+ ``` val lifecycleOwner = LocalLifecycleOwner.current
             LaunchedEffect(lifecycleOwner) {
                 lifecycleOwner.lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
                     withContext(Dispatchers.IO) {
                         println("Running...")
                     }
                 }
-            }```
+            }
+```
 
 The code snippet above, launches a concurrent task (coroutine - running on the background because it is marked as an IO task) which is tied to the lifecycle of the LaunchEffect composable. This means the task is automatically cancelled when the composable is destroyed and starts when the composable is created. This way, the coroutine does not outlive the calling composable. 
 
