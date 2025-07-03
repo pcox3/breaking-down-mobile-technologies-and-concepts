@@ -50,7 +50,7 @@ For example, if a component is executing a long-running task in a background thr
 
 ##### Example in Flutter.
 
-```flutter
+```dart
 import 'dart:async';
 import 'package:flutter/material.dart';
 
