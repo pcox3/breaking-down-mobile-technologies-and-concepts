@@ -37,7 +37,8 @@ For example, if a component is executing a long-running task in a background thr
 
 ### Example in Jetpack Compose. 
 
- ``` val lifecycleOwner = LocalLifecycleOwner.current
+ ```kotlin
+ val lifecycleOwner = LocalLifecycleOwner.current
             LaunchedEffect(lifecycleOwner) {
                 lifecycleOwner.lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
                     withContext(Dispatchers.IO) {
