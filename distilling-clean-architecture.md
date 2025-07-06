@@ -13,11 +13,11 @@ But here’s the truth:
 ### Separation of concerns introduces **coordination** overhead.
 
 Each layer must intentionally handle:
-	•	State propagation
-	•	Error management
-	•	Reactive updates
-	•	Thread/context switching
-	•	Lifecycle awareness (especially in mobile)
+• State propagation
+• Error management
+• Reactive updates
+• Thread/context switching
+• Lifecycle awareness (especially in mobile)
 
 Just because your UI calls a ViewModel, or a ViewModel calls a Repository, doesn’t mean the data is flowing correctly. It might not be reactive. It might be stale. It might not even be returned yet.
 So the real deal is:
