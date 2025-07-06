@@ -5,12 +5,15 @@ but that is just one piece of the cake. Clean Architecture promotes Separation o
 that **Complexity doesn't always mean dificult. Sometimes, there can be simplicity in complexity; an saparation of concern makes this possible."**
 It forces developers to isolate logic into distinct layers (UI, Use Case, Domain, Data), each with a clear responsibility.
 
+
+
 **Separation of Concerns does not guaranteed Data Flow**
 
 Separation alone doesn’t ensure synchronization. Many developers assume that just by calling one layer from another that data will magically flow correctly through the system.
-But here’s the truth:
+But here’s the truth: Separation of concerns introduces **coordination** overhead.
 
-### Separation of concerns introduces **coordination** overhead.
+
+
 
 Each layer must intentionally handle:
 • State propagation
