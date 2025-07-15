@@ -7,7 +7,7 @@ Architecture consider:
 
 - Forn: What it looks like
 - Funtiion: What it does
-- Flow: How it works over time. </br>/</br>
+- Flow: How it works over time. </br></br>
 
 Arhitecture deems it necessary for a system or structure to have multiple parts and these parts need to work in harmony to serve the architecture's purpose. This is one of the famous architecture philosophy called **Saparation Of Concerns**. This introduces a misconception that because architecture introduces multiple parts, these parts automatically live in harmoney. NO they DON'T. The harmony of these parts is archieved through a system design.</br></br>
 
